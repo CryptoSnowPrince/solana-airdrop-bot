@@ -4,7 +4,7 @@ dotenv.config();
 
 const PUBKEY = process.env.PUBKEY; // Replace with your wallet public key
 const RPC = process.env.RPC; // Replace with your RPC URL
-const INTERVAL = 7200; // Default to 2 hours if not set
+const INTERVAL = 6 * 3600; // Default to 6 hours if not set
 
 // Set up connection to devnet
 const connection = new solanaWeb3.Connection(RPC, 'confirmed');
@@ -28,6 +28,6 @@ async function airdropSol() {
     }
 }
 
-// Run airdrop every 2 hours
+// Run airdrop
 airdropSol(); // initial run
-setInterval(airdropSol, INTERVAL * 1000); // every 2 hours
+setInterval(airdropSol, INTERVAL * 1000);
